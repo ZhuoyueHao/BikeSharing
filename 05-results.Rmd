@@ -177,3 +177,7 @@ As expected, sunny days (Weather events not reported) are users’ top choices t
 
 ## Events/Holiday Detection
 
+```{r}
+library(TSstudio)
+ts_plot(finaldata[,c(1,6)])
+```

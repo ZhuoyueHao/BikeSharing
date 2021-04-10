@@ -5,9 +5,10 @@ missing-values
 heatmap-for-overall-pattern
 visna-for-overall-pattern
 results
+service-activation-transition-rate
 deciding-factor-analysis
-variable-dependency
 quantitative-varible-analysis
 qualitative-varible-analysis
+eventsholiday-detection
 interactive-component
 conclusion

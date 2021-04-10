@@ -78,11 +78,12 @@
 <li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#visna-for-overall-pattern"><i class="fa fa-check"></i><b>4.2</b> Visna() for overall pattern</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
-<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#deciding-factor-analysis"><i class="fa fa-check"></i><b>5.1</b> Deciding-Factor Analysis</a></li>
-<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#variable-dependency"><i class="fa fa-check"></i><b>5.2</b> Variable-Dependency</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#service-activation-transition-rate"><i class="fa fa-check"></i><b>5.1</b> Service Activation Transition Rate</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#deciding-factor-analysis"><i class="fa fa-check"></i><b>5.2</b> Deciding-Factor Analysis</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="results.html"><a href="results.html#quantitative-varible-analysis"><i class="fa fa-check"></i><b>5.2.1</b> Quantitative-Varible Analysis</a></li>
 <li class="chapter" data-level="5.2.2" data-path="results.html"><a href="results.html#qualitative-varible-analysis"><i class="fa fa-check"></i><b>5.2.2</b> qualitative-Varible Analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#eventsholiday-detection"><i class="fa fa-check"></i><b>5.3</b> Events/Holiday Detection</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
@@ -107,14 +108,13 @@
             <section class="normal" id="section-">
 <div id="results" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Results</h1>
+<div id="service-activation-transition-rate" class="section level2">
+<h2><span class="header-section-number">5.1</span> Service Activation Transition Rate</h2>
+</div>
 <div id="deciding-factor-analysis" class="section level2">
-<h2><span class="header-section-number">5.1</span> Deciding-Factor Analysis</h2>
-<p>The overall trend graph shows that:</p>
+<h2><span class="header-section-number">5.2</span> Deciding-Factor Analysis</h2>
 <p>In 2019, most bike-sharing activities took place between March to October, in other words, between Spring to early Fall, among which Spring is the peak season users tend to engage in the bike-sharing, with daily average rental amount approching to 15,000.</p>
 <p>Under the impact of the pandemic, 2020 witnesssed a sharp decline of total rental amount and the trend tends to be more oscillating. Since May, the amount of registered users decreased while casual users increased.</p>
-</div>
-<div id="variable-dependency" class="section level2">
-<h2><span class="header-section-number">5.2</span> Variable-Dependency</h2>
 <p>We want to explore how total rental amount of bike-sharing relates to each variable. Since variables are not the same type, we would split them into quantitative varibles and qualitative varibles and analyze seperately.</p>
 <div id="quantitative-varible-analysis" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Quantitative-Varible Analysis</h3>
@@ -137,9 +137,12 @@ Description (weather type of the date)</p>
 <p>Based on the ridge-plots, we could observe that:</p>
 <p>Saturday and Sunday tend to attract more users to cycle, whose distributions center on higher total rental amount (over 10,000). Noticeably, Monday through Friday almost have the same distributions, which may imply users’ daily commuting necessity.</p>
 <p>Spring and Summer are users’ favorite seasons to engage in the bike-sharing activiteis while Fall attracted certain amount of users as well. Besides, there was a great variation in Spring’s total rental amount, which implies the distinctive year-on-year decline in 2020, i.e. the Covid-pandemic year.</p>
-<p>As expected, sunny days (Weather events not reported) are users’ top choices to ride bicycles while people cycled less on rainy and snowy days (Rain, Fograin, Snowfall, Snowfallrain). Surprisingly, thunderstrom days (ThunderstormRain and FogThunderstromRain) did not undermine people’s passion for bike-sharing and this phenomenon could be attributed to residents’ adaptation to frequent thunderstroms.</p>
-
+<p>As expected, sunny days (Weather events not reported) are users’ top choices to ride bicycles while people cycled less on rainy and snowy days (Rain, Fograin, Snowfall, Snowfallrain). Surprisingly, thunderstrom days (ThunderstormRain and FogThunderstromRain) did not undermine people’s passion for bike-sharing and this phenomenon could be attributed to residents’ adaptation to frequent thunderstroms. Also, on thunderstorm days, for those who do not drive, cycling would become alternative commuting type to consider, given the shortage of ride-hailing vehicles due to increased demand.</p>
 </div>
+</div>
+<div id="eventsholiday-detection" class="section level2">
+<h2><span class="header-section-number">5.3</span> Events/Holiday Detection</h2>
+
 </div>
 </div>
             </section>

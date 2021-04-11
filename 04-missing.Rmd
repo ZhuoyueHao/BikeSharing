@@ -53,7 +53,7 @@ makeheatmap<-function(interMAT,text=F)
 }
 ```
 
-## Heatmap for overall pattern
+## Heatmap for the overall pattern
 
 Firstly, we would like to present an overall missing-value distribution of continuous days from 2019-01-01 to 2020-12-31 (total 731 days) and the plot shows:
 
@@ -74,7 +74,7 @@ makeheatmap1(to2)
 ```
 
 
-## Visna() for overall pattern
+## Visna() for the overall pattern
 
 Visna() is another method to explore the potential patterns of missing-value distribution of continuous days (731 days)
 

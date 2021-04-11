@@ -1,6 +1,12 @@
 # Results
 
-##Service Activation Transition Rate
+## Service Activation Transition Rate
+
+The figure shows that both registered and causul users use Capital Bikeshare most in 2019 summer and least in 2019 winter and 2020 winter , while the number of use by registered users is far higher than that by causul user. It indicates that during the cold days in winter, bike may not be people’s priority choice when going outside. Thus if they have to do so, such as commute, they would probably incline to registered since it is more economy preferable in consideration of long term and fixed usage frequency.
+
+And in warm days during the summer(2019), bike is quite popular and the number of used reach its peak then. Just as what indicated by the “Report on the current situation of global and Chinese bike sharing market in 2020 and its future development trend”, people may accidently (causul users)  or mean to (registered users) use Capital Bikeshare service for leisure purpose during the warm days. 
+
+However, this story changed in 2020, perhaps due to the influence of Covid-19, the number of used by registered users decrease sharply while the number of used by causul users increased significantly. The authors infer that due to the Covid-19, people rather to stay at home for most of the time and therefore, a large amount of registered users may quit their membership in Capital Bikeshare for the sake of economy (there are 3 types of membership for Capital Bikeshare, Annual Member, 30-Day Member and Day Key Member, each would charge a fixed fee), and become causul users when they have to go outside. 
 
 
 ## Deciding-Factor Analysis

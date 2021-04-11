@@ -2,9 +2,10 @@ introduction
 data-sources
 data-transformation
 missing-values
-heatmap-for-overall-pattern
-visna-for-overall-pattern
+heatmap-for-the-overall-pattern
+visna-for-the-overall-pattern
 results
+service-activation-transition-rate
 deciding-factor-analysis
 quantitative-varible-analysis
 qualitative-varible-analysis

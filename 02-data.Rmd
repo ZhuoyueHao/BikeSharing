@@ -1,8 +1,8 @@
 # Data sources
 
-Two data sources were introduced in this research, the first one was from the homepage of Capital Bikeshare, which includes the following variables (731 samples, each sample indicate a day’s record in Washington D.C. during 2019 and 2020): 
+Two data sources were introduced in this research, the first one was from the homepage of Capital Bikeshare, which includes the following variables (5539860 records, each record indicate one use of Capital Bikeshare in Washington D.C. during 2019 and 2020): 
 
-Duration (Duration of trip), Start Date (Includes start date and time), End Date (Includes end date and time), Bike Number (Includes ID number of bike used for the trip), Member Type (Indicates whether user was a "registered" member or a "casual" rider), Season (Season type obtained from Start Date and End Date), Day Type (Weekday or Weekend Day obtained from Start Date and End Date).
+Duration (Duration of trip), Start Date (Includes start date and time of the trip), End Date (Includes end date and time of the trip), Bike Number (Includes ID number of bike used for the trip), Member Type (Indicates whether user was a "registered" member or a "casual" rider), Season (Season type obtained from Start Date and End Date), Day Type (Weekday or Weekend Day obtained from Start Date and End Date).
 
 This data has been processed by Capital Bikeshare to remove trips that were taken by staff as they serviced and inspected the system, trips that were taken to/from any of our “test” stations at our warehouses and any trips lasting less than 60 seconds (potentially false starts or users trying to redock a bike to ensure it was secure).
 

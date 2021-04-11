@@ -16,4 +16,3 @@ To conduct a comprehensive study, we collect the weather data and Capital Bikesh
 1.	Service Activation Transition Rate: does the Registered customer base of the Capital BikeShare increases during our monitored period (Casual-user to Registered-user)?
 2.	Deciding-Factor Analysis: how does the factors of weather type (temperature, humidity, windspeed) and date (year, month, hour, weekday) affect the count of the bike-sharing rental?
 3.	Events/Holiday Detection: can we detect important events and holiday trends in the city by looking at the bike-rental data?
-

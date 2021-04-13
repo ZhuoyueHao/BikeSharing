@@ -41,7 +41,9 @@ data_new %>%
 pivot_longer(cols = c(registered, causul), names_to ="type", values_to = "value") %>% ggplot(aes(new_month,value,fill=type)) + geom_bar(stat="identity",position="stack") + theme(axis.text.x=element_text(angle=45,size=7.5))  + ggtitle('num used by users by month') + labs(x = "month", y = 'num used')
 ```
 
+
 The implication from this figure is aligned with what we obtained from the previous plot. And the proportion of causul users during the warm days of 2019 does increase (indicate more free and diversified use scenarios). Besides, the negative impact of Covid-19 is also quite obvious in this plot, it show that the number of used by both causul and registered users together is substantial lower compared with the same period in 2019 during summer and fall (also the worst period of covid-19).
+
 
 ```{r}
 library(data.table)
@@ -115,18 +117,14 @@ bike1 <- bike
 #bike[,all(registered+casual==total)]
 ```
 
-In 2019, most bike-sharing activities took place between March to October, in other words, between Spring to early Fall, among which Spring is the peak season users tend to engage in the bike-sharing, with daily average rental amount approching to 15,000.
-
-Under the impact of the pandemic, 2020 witnesssed a sharp decline of total rental amount and the trend tends to be more oscillating. Since May, the amount of registered users decreased while casual users increased.
-
 We want to explore how total rental amount of bike-sharing relates to each variable. Since variables are not the same type, we would split them into quantitative varibles and qualitative varibles and analyze seperately.
 
 ### Quantitative-Varible Analysis
 
-min_temp (daily minimum temperature)
-max_temp (daily maximum temperature)
-max_steady_wind (maximum steady wind of the day)
-total_daily_precipitation (total daily precipitation)
+min_temp (daily minimum temperature); 
+max_temp (daily maximum temperature); 
+max_steady_wind (maximum steady wind of the day); 
+total_daily_precipitation (total daily precipitation).
 
 ```{r}
 library(pheatmap)
@@ -209,11 +207,11 @@ Non-windy days with 15-30 km/h wind usually attracted more users to the bike-sha
 
 ### Qualitative-Varible Analysis
 
-Weekday (weekday of the date)
-Season
-Description (weather type of the date)
+Weekday (weekday of the date); 
+Season; 
+Description (weather type of the date).
 
-```{R}
+```{r}
 library(ggridges)
 
 bike1<-melt(bike1,

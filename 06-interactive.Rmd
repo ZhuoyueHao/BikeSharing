@@ -23,6 +23,10 @@
 
 <script src="bike.js"></script>
 
-In 2019, most bike-sharing activities took place between March to October, in other words, between Spring to early Fall, among which Spring is the peak season users tend to engage in the bike-sharing, with daily average rental amount approching to 15,000.
+In 2019, most bike-sharing activities took place between March to October, in other words, between Spring to early Fall, among which Spring is the peak season users tend to engage in the bike-sharing, with daily average rental amount approaching to 15,000.
 
-Under the impact of the pandemic, 2020 witnesssed a sharp decline of total rental amount and the trend tends to be more oscillating. Since May, the amount of registered users decreased while casual users increased.
+Under the impact of the pandemic, 2020 witnessed a sharp decline of total rental amount and the trend tends to be more oscillating. Since May, the amount of registered users decreased while casual users increased.
+
+This plot also helps solidifying our interpretation of the four days with peak bike sharing rides. By selecting "all" for years, "casual" and "total" for the type of users. We can find that those two lines have the same four peak days as identified in chapter 5. Some of the visitors for the cherry blossom come from different cities and states, and therefore being a casual users for the local bike sharing company. For the BLM protest and the president election celebration, there are also a large portion of participants who come from nearby cities. Therefore, the line of casual and total users are sharing the same peak days.
+
+

@@ -27,6 +27,6 @@ In 2019, most bike-sharing activities took place between March to October, in ot
 
 Under the impact of the pandemic, 2020 witnessed a sharp decline of total rental amount and the trend tends to be more oscillating. Since May, the amount of registered users decreased while casual users increased.
 
-This plot also helps solidifying our interpretation of the four days with peak bike sharing rides. By selecting "all" for years, "casual" and "total" for the type of users. We can find that those two lines have the same four peak days as identified in chapter 5. Some of the visitors for the cherry blossom come from different cities and states, and therefore being a casual users for the local bike sharing company. For the BLM protest and the president election celebration, there are also a large portion of participants who come from nearby cities. Therefore, the line of casual and total users are sharing the same peak days.
+This plot also helps solidify our interpretation of the four days with peak bike sharing rides. By selecting "all" for years, "casual" and "total" for the type of users. We can find that those two lines have the same four peak days as identified in chapter 5. Some of the visitors for the cherry blossom come from different cities and states, and therefore being a casual users for the local bike sharing company. For the BLM protest and the president election celebration, there are also a large portion of participants who come from nearby cities. Therefore, the line of casual and total users are sharing the same peak days.
 
 

@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-    <style>
-        .main{
-            text-align:center;
-        }
-        .legend{
-            margin-left:20px;
-            cursor:pointer;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <div style="text-align:center;">
-            <h2>2019-2020 Capital Bikeshare Daily Usage Trend</h2>
-        </div>
-        <div class="filter-box" style="text-align:center;">
-            <select id="year-list">
-                <option value="all">all</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-            </select>
-            <span class="legend registered">registered</span>
-            <span class="legend casual">casual</span>
-            <span class="legend total">total</span>
-        </div>
-        <div id="chart" style="text-align:center;"></div>
-    </div>
-    <script src="d3.v5.min.js"></script>
-    <script src="data.js"></script>
-
-    <script>
-        //-------------------------- start --------------------------
+//-------------------------- 配置信息 start --------------------------
         var options = {
-            width: 960,
+            width: 800,
             height: 600,
             margins: {
                 left: 80,
@@ -46,15 +10,15 @@
             },
             xAxis: {
                 ticks: 20,
-                name: "date",     // X_field
-                title: "Date"     // X_label
+                name: "date",     // X轴坐标字段
+                title: "Date"     // X轴坐标名称
             },
             yAxis: {
-                name: "",     // Y_field
-                title: "Count"     // Y_label
+                name: "",     // Y轴坐标字段
+                title: "Count"     // Y轴坐标名称
             }
         };
-        //-------------------------- end --------------------------
+        //-------------------------- 配置信息 end --------------------------
         var margins = options.margins;
         var width = options.width - margins.left - margins.right;
         var height = options.height - margins.top - margins.bottom;
@@ -82,11 +46,11 @@
         let scale = d3.scaleTime().range([0, width]);
         var y = d3.scaleLinear().range([height, 0]);
 
-        // Axis
+        // 坐标轴
         var xAxis = d3.axisBottom().scale(scale);
         var yAxis = d3.axisLeft().scale(y);
 
-        // Plot Axis
+        // 绘制坐标轴
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + (height) + ")")
@@ -103,7 +67,7 @@
             .attr("dy", ".71em")
             .style("text-anchor", "end")
             ;
-        // Plot X-Axis label
+        // 绘制X轴标题
         var xaxisLeft = (width - xAxisTitle.length * 10) + 10;
         svg.append("g")
             .attr("class", "x-axis-title")
@@ -112,8 +76,7 @@
             .text(xAxisTitle)
             ;
 
-        //  Plot Y-Axis label
-       
+        //  绘制Y轴标题
         svg.append("g")
             .attr("class", "y-axis-title")
             .attr("transform", "translate(-50," + (yAxisTitle.length * 8 + 10) + ")")
@@ -127,7 +90,7 @@
             .join("span")
             .text(d => d.name)
             .style("color", d => colorScale(d.name))
-            .on("click", function (d) {
+            .on("click", function (evt,d) {
                 if (d.show) {
                     d3.select(this).style("color", "#ccc");
                 }
@@ -155,7 +118,7 @@
 
             valueNameList.forEach(function (item) {
                 if (item.show) {
-                    // Create a line Genertor
+                    //创建一个直线生成器
                     var linePath = d3.line()
                         .x(function (d) {
                             return scale(d.date);
@@ -163,10 +126,10 @@
                         .y(function (d) {
                             return y(d[item.name]);
                         });
-                    //Add path
-                    svg.selectAll(".line-path-" + item.name) //Select all <path> in <svg>
-                        .data([sublist]) //Link data
-                        .join("path") //Add sufficient <path> elements 
+                    //添加路径
+                    svg.selectAll(".line-path-" + item.name) //选择<svg>中所有的<path>
+                        .data([sublist]) //绑定数据
+                        .join("path") //添加足够数量的<path>元素
                         .attr("class", "line-path-" + item.name)
                         .attr("d", linePath)
                         .attr("fill", "none")
@@ -206,11 +169,8 @@
         }
         handle(data);
 
-        
+        // 在本地建立Web服务才可以直接加载d3_data.csv
+        // 现在已经将数据整理到data.js里，所以这段代码注释掉
         //d3.csv("d3_data.csv").then(function (data) {
         //    handle(data);
         //});
-
-    </script>
-</body>
-</html>

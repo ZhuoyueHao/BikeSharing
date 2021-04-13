@@ -12,3 +12,6 @@ qualitative-varible-analysis
 eventsholiday-detection
 interactive-component
 conclusion
+limitations
+lessons-learned
+future-directions

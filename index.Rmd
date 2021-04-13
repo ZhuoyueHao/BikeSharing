@@ -1,6 +1,6 @@
 --- 
-title: "Analysis and Visualization of Bike Sharing Data in Washington D.C. Area"
-author: "Zhuoyue Hao Shihang Wang Yeqi Zhang"
+title: "Analysis and Visualization of Bike Sharing Data for Capital Bikeshare in Washington D.C."
+author: "Zhuoyue Hao, Shihang Wang, Yeqi Zhang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---

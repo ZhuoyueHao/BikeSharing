@@ -264,13 +264,15 @@ As expected, sunny days (Weather events not reported) are users’ top choices t
 
 ## Events/Holiday Detection
 
+This is an extended version of the d3 plot in chapter 6, which could help us identify the specific dates with the peak bike sharing rides.
+
 ```{r}
 library(TSstudio)
 TotalUserPerDay <- finaldata[,c(1,6)]
 ts_plot(TotalUserPerDay)
 ```
 
-By inspecting the graph, we can observe that 2019-03-30, 2019-04-06, 2020-06-06, and 2020-11-07 are the four days with most bike sharing rides over the past two years, and we will analyze those dates with information from the CNN news, the New York Times and other online sources.
+By moving the cursor on the interactive graph, we can observe that 2019-03-30, 2019-04-06, 2020-06-06, and 2020-11-07 are the four days with most bike sharing rides over the past two years, and we will analyze those dates with information from the CNN news, the New York Times and other online sources.
 
 As we all know, Washington D.C. is famous for the cherry blossom near the Washington Monument, and people celebrate the National Cherry Blossom Festival every year from the last week of March into the first week of April. Unlike 2020, most of the people are not allowed to work from home or take a day off just to enjoy the bloom of the cherry blossom in 2019, so people are more likely to go together on the weekend. This explains why 2019-03-30 and 2019-04-06 are the two peak dates that people go out on street and take the bike sharing rides much more frequent than usual dates.
 

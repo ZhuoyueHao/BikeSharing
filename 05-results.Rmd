@@ -1,6 +1,27 @@
 # Results
 
+```{r}
+library(data.table)
+library(anytime)
+library(ggplot2)
+library(RColorBrewer)
+library(patchwork)
+library(tidyr)
+library(magrittr)
+```
+
 ## Service Activation Transition Rate
+
+```{r}
+load('dat.dt.RData')
+load('bikedata.dt.RData')
+dat[,year:=year(date)]
+dat[,month:=month(date)]
+alldata <- merge(x = dat, y = finaldata, by = "date", all.x = TRUE)
+alldata %>% 
+  pivot_longer(cols = c(registered, causul), names_to ="type", values_to = "value") %>% 
+  ggplot(aes(date, value, color = type)) + geom_point(size=1) + geom_line(alpha=0.7, size=0.3) +geom_smooth(method = 'loess', se = FALSE, lwd = 1) + scale_color_manual(values = c("grey50", "black")) + ggtitle('num used by users') + labs(x = "date", y = 'num used')
+```
 
 The figure shows that both registered and causul users use Capital Bikeshare most in 2019 summer and least in 2019 winter and 2020 winter , while the number of use by registered users is far higher than that by causul user. It indicates that during the cold days in winter, bike may not be people’s priority choice when going outside. Thus if they have to do so, such as commute, they would probably incline to registered since it is more economy preferable in consideration of long term and fixed usage frequency.
 
@@ -8,20 +29,83 @@ And in warm days during the summer(2019), bike is quite popular and the number o
 
 However, this story changed in 2020, perhaps due to the influence of Covid-19, the number of used by registered users decrease sharply while the number of used by causul users increased significantly. The authors infer that due to the Covid-19, people rather to stay at home for most of the time and therefore, a large amount of registered users may quit their membership in Capital Bikeshare for the sake of economy (there are 3 types of membership for Capital Bikeshare, Annual Member, 30-Day Member and Day Key Member, each would charge a fixed fee), and become causul users when they have to go outside. 
 
+```{r}
+data_new <- alldata
+data_new$month <- as.character(data_new$month)
+c1=c("01","02","03","04","05","06","07","08","09")
+c2=c("1","2","3","4","5","6","7","8","9")
+for (i in 1:9){data_new$month[data_new$month==c2[i]]<-c1[i]}
+data_new$new_month <- paste(substring(data_new$year,3),data_new$month,sep = "-")
+
+data_new %>%
+pivot_longer(cols = c(registered, causul), names_to ="type", values_to = "value") %>% ggplot(aes(new_month,value,fill=type)) + geom_bar(stat="identity",position="stack") + theme(axis.text.x=element_text(angle=45,size=7.5))  + ggtitle('num used by users by month') + labs(x = "month", y = 'num used')
+```
+
+The implication from this figure is aligned with what we obtained from the previous plot. And the proportion of causul users during the warm days of 2019 does increase (indicate more free and diversified use scenarios). Besides, the negative impact of Covid-19 is also quite obvious in this plot, it show that the number of used by both causul and registered users together is substantial lower compared with the same period in 2019 during summer and fall (also the worst period of covid-19).
+
+```{r}
+library(data.table)
+library(ggTimeSeries)
+dat <- data.table(
+  date = seq(as.Date("2019-01-01"), as.Date("2020-12-31"), "days"),
+  ValueCol = ( alldata$causul)/(alldata$causul+ alldata$registered)
+)
+
+dat[, ':='(Year = as.integer(strftime(date, "%Y")), # add new column
+               month = as.integer(strftime(date, "%m")),
+               week = as.integer(strftime(date, "%W")))]
+```
+
+```{r}
+label_mons <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", 
+                "Aug", "Sep", "Oct", "Nov", "Dec")
+label_wik <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+dat <- dat[, ':='(weekday = as.integer(strftime(date, "%u")),
+                      yearmonth = strftime(date, "%m%Y"),
+                      day = strftime(date, "%d"))
+               ][, ':='(monthf = factor(x = month, levels = as.character(1:12), labels = label_mons, ordered = TRUE),
+                        weekdayf = factor(x = weekday, levels = 1:7, 
+                                          labels = label_wik, ordered = TRUE),
+                        yearmonthf = factor(x = yearmonth))
+                 ][, ':='(monthweek = 1 + week - min(week)), by = .(monthf)]
+```
+
+```{r}
+library(RColorBrewer)
+dat19 <- dat[Year == 2019]
+ggplot(dat19, aes(weekdayf, monthweek, fill = ValueCol)) + 
+  geom_tile(color = "white") +
+  geom_text(aes(label = day), size = 2) + 
+  scale_fill_gradientn(colours = rev(brewer.pal(11, "Spectral"))) + 
+  facet_wrap(~monthf, nrow = 3) + 
+  scale_y_reverse(name = "Week of the month") + 
+  xlab("Day") +
+  theme(strip.text = element_text(size = 9, face = "plain", color = "black"),panel.grid = element_blank(), axis.text.x=element_text(angle=45,size=7.5)) + ggtitle('proportion of causul users by day in 2019')
+```
+
+```{r}
+dat20 <- dat[Year == 2020]
+ggplot(dat20, aes(weekdayf, monthweek, fill = ValueCol)) + 
+  geom_tile(color = "white") +
+  geom_text(aes(label = day), size = 2) + 
+  scale_fill_gradientn(colours = rev(brewer.pal(11, "Spectral"))) + 
+  facet_wrap(~monthf, nrow = 3) + 
+  scale_y_reverse(name = "Week of the month") + 
+  xlab("Day") +
+  theme(strip.text = element_text(size = 9, face = "plain", color = "black"),panel.grid = element_blank(), axis.text.x=element_text(angle=45,size=7.5)) + ggtitle('proportion of causul users by day in 2020')
+```
+
+We also draw the heatmap according to proportion of causul users by day in 2019 and 2020. We notice that irrespective of the impact of Covid-19 or seasonal factors, causul users make up a higher proportion during the weekends, which make our discussion towards 2 previous plots more valid. That is, during the weekdays, a large proportion of users are registered users, who may apply Capital Bikeshare service for commute purpose. While during the weekends, people use them more casually, and perhaps exactly as what we have commented, for leisure use, just as the use scenarios that has been figured out in Italy.
+
 
 ## Deciding-Factor Analysis
 
 ```{r}
-library(data.table)
-library(anytime)
-library(ggplot2)
-library(RColorBrewer)
-library(patchwork)
-
 load('dat.dt.RData')
-dat->weather
+dat -> weather
 load('bikedata.dt.RData')
-finaldata->bike
+finaldata -> bike
 colnames(bike)[5] <- "casual"
 
 setDT(weather)
@@ -184,5 +268,14 @@ As expected, sunny days (Weather events not reported) are users’ top choices t
 
 ```{r}
 library(TSstudio)
-ts_plot(finaldata[,c(1,6)])
+TotalUserPerDay <- finaldata[,c(1,6)]
+ts_plot(TotalUserPerDay)
 ```
+
+By inspecting the graph, we can observe that 2019-03-30, 2019-04-06, 2020-06-06, and 2020-11-07 are the four days with most bike sharing rides over the past two years, and we will analyze those dates with information from the CNN news, the New York Times and other online sources.
+
+As we all know, Washington D.C. is famous for the cherry blossom near the Washington Monument, and people celebrate the National Cherry Blossom Festival every year from the last week of March into the first week of April. Unlike 2020, most of the people are not allowed to work from home or take a day off just to enjoy the bloom of the cherry blossom in 2019, so people are more likely to go together on the weekend. This explains why 2019-03-30 and 2019-04-06 are the two peak dates that people go out on street and take the bike sharing rides much more frequent than usual dates.
+
+According to the CNN and New York Times news reports on June 6, 2020, Washington D.C. was having a protest on the death of George Floyd. The Washington’s mayor had “Black Lives Matter” painted near the White House and lead the protest. It directly lead to the peak in bike sharing rides since lots of people participated in the event and they all need a solution for the transportation.
+
+The last peak day we observed from the past two years are November 7th, 2020. On November 7th, the Associated Press, Fox News, and the other major networks call Pennsylvania for Biden, thus putting him above the required 270 electoral votes to be named President-elect. Reacting to the news of Biden's projected victory, his supporters celebrate in the streets of various cities across the country. At the same day, Trump proceeds with his legal challenges， and his supporters protest in various cities. As one of the crowded days in history, it's reasonable that the bike sharing rides increase as a mean of transportation.

@@ -24,7 +24,7 @@
 <meta name="author" content="Zhuoyue Hao Shihang Wang Yeqi Zhang" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-04-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -93,7 +93,11 @@
 <li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#eventsholiday-detection"><i class="fa fa-check"></i><b>5.3</b> Events/Holiday Detection</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
-<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a><ul>
+<li class="chapter" data-level="7.1" data-path="conclusion.html"><a href="conclusion.html#limitations"><i class="fa fa-check"></i><b>7.1</b> Limitations</a></li>
+<li class="chapter" data-level="7.2" data-path="conclusion.html"><a href="conclusion.html#lessons-learned"><i class="fa fa-check"></i><b>7.2</b> Lessons Learned</a></li>
+<li class="chapter" data-level="7.3" data-path="conclusion.html"><a href="conclusion.html#future-directions"><i class="fa fa-check"></i><b>7.3</b> Future Directions</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -115,7 +119,21 @@
             <section class="normal" id="section-">
 <div id="conclusion" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Conclusion</h1>
+<div id="limitations" class="section level2">
+<h2><span class="header-section-number">7.1</span> Limitations</h2>
+<p>Since the weather data fetched from freemeteo.com is a daily-based data set instead of an hourly-based records, we are not able to analyze and observe the trends in a more detailed scale. If possible, data set with date accurate to hour could be exploited and therefore, daily trend of bike-sharing service could be analyzed.</p>
+<p>There is another question that we really interested in but are not able to explore, due to the limitation of data provided by the Capital Bikeshare Company. We would like to see that on a person to person level if casual users become subscribed members throughout year 2019 to 2020. However, the Capital Bikeshare Company only provides identification numbers for trips rather than users, so for now there is no way for us to identify the users to a person to person base.</p>
+</div>
+<div id="lessons-learned" class="section level2">
+<h2><span class="header-section-number">7.2</span> Lessons Learned</h2>
+<p>By handling a data set with 5 million observations and 9 features, we learned how to clean and transform the extremely large data set and finally saved it as a data frame with 701 entries and 11 total columns. The whole algorithm takes about an hour to run each time, and therefore tells us how important it is to check all details after we make any changes.</p>
+</div>
+<div id="future-directions" class="section level2">
+<h2><span class="header-section-number">7.3</span> Future Directions</h2>
+<p>Using our methodology, a trend analysis of competitors operating in business model analogous with Capital Bikeshare could be conducted to explore the similarities and differences for further concerns.</p>
+<p>The bike sharing company could also explore distinctive characteristics or outliers implicit in dataset based on resulting plots, and conduct Attribution Analysis and provide the data-driven advises or strategies for future service improvement.</p>
 
+</div>
 </div>
             </section>
 
